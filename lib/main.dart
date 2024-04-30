@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/inbox/activity_screen.dart';
+import 'package:tiktok_clone/features/main_navigation/main_naviation_screen.dart';
 //import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
-//import 'package:tiktok_clone/features/main_navigation/main_naviation_screen.dart';
 
 void main() {
   runApp(const TikTokApp());
@@ -23,6 +22,8 @@ class TikTokApp extends StatelessWidget {
         //highlightColor: Colors.transparent,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
+          surfaceTintColor: Colors.white,
+          shadowColor: Colors.black26,
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0,
@@ -35,8 +36,7 @@ class TikTokApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffe9435A)),
         useMaterial3: true,
       ),
-      //home: const SignUpScreen(),
-      home: const ActivityScreen(),
+      home: const MainNaviationScreen(),
     );
   }
 }
