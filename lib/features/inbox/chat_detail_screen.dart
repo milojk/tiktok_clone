@@ -155,9 +155,11 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                           horizontal: Sizes.size12,
                           //vertical: Sizes.size10,
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(
-                            Sizes.size12,
+                        border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(Sizes.size20),
+                            topRight: Radius.circular(Sizes.size20),
+                            bottomLeft: Radius.circular(Sizes.size20),
                           ),
                           borderSide: BorderSide.none,
                         ),
@@ -168,8 +170,18 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                   ),
                   Gaps.h20,
                   Container(
-                    child: const FaIcon(
-                      FontAwesomeIcons.paperPlane,
+                    width: Sizes.size36,
+                    height: Sizes.size36,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black12,
+                    ),
+                    child: const Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.paperPlane,
+                        size: Sizes.size16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
