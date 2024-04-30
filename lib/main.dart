@@ -33,6 +33,10 @@ class TikTokApp extends StatelessWidget {
             color: Colors.black,
           ),
         ),
+        bottomAppBarTheme: const BottomAppBarTheme(
+          surfaceTintColor: Colors.white,
+          shadowColor: Colors.black26,
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffe9435A)),
         useMaterial3: true,
       ),

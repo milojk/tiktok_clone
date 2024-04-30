@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
@@ -15,28 +18,48 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const ListTile(
+        title: ListTile(
           contentPadding: EdgeInsets.zero,
           horizontalTitleGap: Sizes.size8,
-          leading: CircleAvatar(
-            radius: Sizes.size24,
-            foregroundImage: NetworkImage(
-                'https://avatars.githubusercontent.com/u/32942355'),
-            child: Text('Jess'),
+          leading: Stack(
+            children: [
+              const CircleAvatar(
+                radius: Sizes.size24,
+                foregroundImage: NetworkImage(
+                    'https://avatars.githubusercontent.com/u/32942355'),
+                child: Text('Jess'),
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  width: Sizes.size16,
+                  height: Sizes.size16,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.white,
+                      width: Sizes.size3,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          title: Text(
+          title: const Text(
             'Jess',
             style: TextStyle(
               fontWeight: FontWeight.w600,
             ),
           ),
-          subtitle: Text(
+          subtitle: const Text(
             'Active now',
             style: TextStyle(
               color: Colors.black38,
             ),
           ),
-          trailing: Row(
+          trailing: const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               FaIcon(
@@ -103,8 +126,45 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
               color: Colors.grey.shade50,
               child: Row(
                 children: [
-                  const Expanded(
-                    child: TextField(),
+                  Expanded(
+                    child: TextField(
+                      expands: true,
+                      maxLines: null,
+                      minLines: null,
+                      textInputAction: TextInputAction.newline,
+                      cursorColor: Theme.of(context).primaryColor,
+                      decoration: InputDecoration(
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.only(
+                            right: Sizes.size10,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Gaps.h5,
+                              FaIcon(
+                                FontAwesomeIcons.faceSmile,
+                                color: Colors.grey.shade900,
+                              ),
+                            ],
+                          ),
+                        ),
+                        hintText: 'Send a message...',
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: Sizes.size12,
+                          //vertical: Sizes.size10,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                            Sizes.size12,
+                          ),
+                          borderSide: BorderSide.none,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                      ),
+                    ),
                   ),
                   Gaps.h20,
                   Container(
