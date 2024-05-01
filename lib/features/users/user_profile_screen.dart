@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
@@ -87,30 +88,67 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       ),
                     ),
                     Gaps.v14,
-                    FractionallySizedBox(
-                      widthFactor: 0.33,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: Sizes.size10,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(
-                              Sizes.size4,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: Sizes.size10,
+                            horizontal: Sizes.size36,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(
+                                Sizes.size3,
+                              ),
+                            ),
+                          ),
+                          child: const Text(
+                            'Follow',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: Sizes.size14,
                             ),
                           ),
                         ),
-                        child: const Text(
-                          'Follow',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
+                        Gaps.h4,
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: Sizes.size8,
+                            horizontal: Sizes.size8,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black26,
+                            ),
                             color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: Sizes.size14,
+                          ),
+                          child: const FaIcon(
+                            FontAwesomeIcons.youtube,
+                            size: Sizes.size20,
                           ),
                         ),
-                      ),
+                        Gaps.h4,
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: Sizes.size8,
+                            horizontal: Sizes.size8,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black26,
+                            ),
+                            color: Colors.white,
+                          ),
+                          child: const FaIcon(
+                            FontAwesomeIcons.chevronDown,
+                            size: Sizes.size20,
+                          ),
+                        ),
+                      ],
                     ),
                     Gaps.v14,
                     const Padding(
@@ -166,19 +204,41 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 itemCount: 20,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
-                  childAspectRatio: 9 / 14,
+                  childAspectRatio: 9 / 13,
                   crossAxisSpacing: Sizes.size2,
                   mainAxisSpacing: Sizes.size2,
                 ),
-                itemBuilder: (context, index) => Column(
+                itemBuilder: (context, index) => Stack(
                   children: [
                     AspectRatio(
-                      aspectRatio: 9 / 14,
+                      aspectRatio: 9 / 13,
                       child: FadeInImage.assetNetwork(
                           fit: BoxFit.cover,
                           placeholder: 'assets/images/image04.png',
                           image:
                               'https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?q=80&w=2836&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      left: 4,
+                      child: Row(
+                        children: [
+                          const FaIcon(
+                            FontAwesomeIcons.play,
+                            color: Colors.white,
+                            size: Sizes.size12,
+                          ),
+                          Gaps.h5,
+                          Text(
+                            'No. $index',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: Sizes.size12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
