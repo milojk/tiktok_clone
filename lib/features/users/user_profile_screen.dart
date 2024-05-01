@@ -60,7 +60,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         )
                       ],
                     ),
-                    Gaps.v24,
+                    Gaps.v14,
                     SizedBox(
                       height: Sizes.size40,
                       child: Row(
@@ -166,7 +166,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 itemCount: 20,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
-                  childAspectRatio: 9 / 15,
+                  childAspectRatio: 9 / 14,
                   crossAxisSpacing: Sizes.size2,
                   mainAxisSpacing: Sizes.size2,
                 ),
@@ -180,7 +180,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           image:
                               'https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?q=80&w=2836&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
                     ),
-                    Gaps.v5,
                   ],
                 ),
               ),
