@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktok_clone/constants/breakpoints.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/settings/settings_screen.dart';
 import 'package:tiktok_clone/features/users/wigets/persistent_tabbar.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -13,8 +16,17 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  void _onGearPressed() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const SettingsScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: DefaultTabController(
         length: 2,
@@ -25,7 +37,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 title: const Text('Jess'),
                 actions: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: _onGearPressed,
                     icon: const FaIcon(
                       FontAwesomeIcons.gear,
                       size: Sizes.size20,
@@ -91,26 +103,28 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: Sizes.size10,
-                            horizontal: Sizes.size36,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(
-                                Sizes.size3,
+                        SizedBox(
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Sizes.size10,
+                              horizontal: Sizes.size36,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(
+                                  Sizes.size3,
+                                ),
                               ),
                             ),
-                          ),
-                          child: const Text(
-                            'Follow',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: Sizes.size14,
+                            child: const Text(
+                              'Follow',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: Sizes.size14,
+                              ),
                             ),
                           ),
                         ),
@@ -201,9 +215,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 padding: EdgeInsets.zero,
                 keyboardDismissBehavior:
                     ScrollViewKeyboardDismissBehavior.onDrag,
-                itemCount: 20,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
+                itemCount: 40,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: size.width > Breakpoints.lg ? 5 : 3,
                   childAspectRatio: 9 / 13,
                   crossAxisSpacing: Sizes.size2,
                   mainAxisSpacing: Sizes.size2,
