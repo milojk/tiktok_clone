@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authentication/login_form_screen.dart';
 import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
+import 'package:tiktok_clone/utils.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -39,13 +41,15 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               Gaps.v52,
-              const Text(
-                "Manage your account, check notifications, comment on videos, and more.",
-                style: TextStyle(
-                  fontSize: Sizes.size16,
-                  color: Colors.black45,
+              const Opacity(
+                opacity: 0.7,
+                child: Text(
+                  "Manage your account, check notifications, comment on videos, and more.",
+                  style: TextStyle(
+                    fontSize: Sizes.size16,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
               Gaps.v40,
               GestureDetector(
@@ -59,17 +63,13 @@ class LoginScreen extends StatelessWidget {
               const AuthButton(
                   icon: FaIcon(FontAwesomeIcons.apple),
                   text: "Continue with Apple"),
-              Gaps.v16,
-              const AuthButton(
-                  icon: FaIcon(FontAwesomeIcons.google),
-                  text: "Continue with Google"),
             ],
           ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        color: isDarkMode(context) ? null : Colors.grey.shade50,
         elevation: 2,
-        color: Colors.grey.shade50,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             vertical: Sizes.size14,

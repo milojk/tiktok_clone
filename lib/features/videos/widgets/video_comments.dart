@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/utils.dart';
 
 class VideoComments extends StatefulWidget {
   const VideoComments({super.key});
@@ -36,6 +37,7 @@ class _VideoCommentsState extends State<VideoComments> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final isDark = isDarkMode(context);
     return Container(
       height: size.height * 0.75,
       clipBehavior: Clip.hardEdge,
@@ -45,10 +47,9 @@ class _VideoCommentsState extends State<VideoComments> {
       child: LayoutBuilder(
         builder: (context, constraints) {
           return Scaffold(
-            backgroundColor: Colors.grey.shade50,
+            backgroundColor: isDark ? null : Colors.grey.shade50,
             appBar: AppBar(
-              backgroundColor: Colors.grey.shade50,
-              surfaceTintColor: Colors.grey.shade50,
+              backgroundColor: isDark ? null : Colors.grey.shade50,
               automaticallyImplyLeading: false,
               actions: [
                 IconButton(
@@ -78,9 +79,11 @@ class _VideoCommentsState extends State<VideoComments> {
                       itemBuilder: (context, index) => Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
                             radius: 18,
-                            child: Text('Nico'),
+                            backgroundColor:
+                                isDark ? Colors.grey.shade700 : null,
+                            child: const Text('Nico'),
                           ),
                           Gaps.h10,
                           Expanded(
@@ -135,9 +138,6 @@ class _VideoCommentsState extends State<VideoComments> {
                     width: constraints.maxWidth,
                     bottom: 0,
                     child: BottomAppBar(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      //shadowColor: Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.only(
                           left: Sizes.size2,
@@ -177,19 +177,16 @@ class _VideoCommentsState extends State<VideoComments> {
                                             MainAxisAlignment.end,
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          FaIcon(
+                                          const FaIcon(
                                             FontAwesomeIcons.at,
-                                            color: Colors.grey.shade900,
                                           ),
                                           Gaps.h5,
-                                          FaIcon(
+                                          const FaIcon(
                                             FontAwesomeIcons.gift,
-                                            color: Colors.grey.shade900,
                                           ),
                                           Gaps.h5,
-                                          FaIcon(
+                                          const FaIcon(
                                             FontAwesomeIcons.faceSmile,
-                                            color: Colors.grey.shade900,
                                           ),
                                           Gaps.h5,
                                           if (_isWriting)
@@ -216,7 +213,9 @@ class _VideoCommentsState extends State<VideoComments> {
                                       borderSide: BorderSide.none,
                                     ),
                                     filled: true,
-                                    fillColor: Colors.grey.shade200,
+                                    fillColor: isDark
+                                        ? Colors.grey.shade800
+                                        : Colors.grey.shade200,
                                   ),
                                 ),
                               ),

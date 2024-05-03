@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
@@ -54,15 +52,16 @@ class SignUpScreen extends StatelessWidget {
                       fontSize: Sizes.size24,
                       fontWeight: FontWeight.w700,
                     ),
+                    //Theme.of(context).textTheme.headlineMedium,
                   ),
                   Gaps.v20,
-                  const Text(
-                    "Create a profile, follow other accounts, make your own videos, and more.",
-                    style: TextStyle(
-                      fontSize: Sizes.size16,
-                      color: Colors.black45,
+                  Opacity(
+                    opacity: 0.7,
+                    child: Text(
+                      "Create a profile, follow other accounts, make your own videos, and more.",
+                      style: Theme.of(context).textTheme.titleMedium,
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                   Gaps.v40,
                   if (orientation == Orientation.portrait) ...[
@@ -102,7 +101,6 @@ class SignUpScreen extends StatelessWidget {
           ),
           bottomNavigationBar: BottomAppBar(
             elevation: 2,
-            color: Colors.grey.shade50,
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: Sizes.size14,
