@@ -1,0 +1,30 @@
+{
+  "@@locale": "ko",
+  "signUpTitle": "{nameOfTheApp}에 가입하세요 {when}",
+  "@signUpTitle": {
+    "placeholders": {
+      "nameOfTheApp": {
+        "type": "String",
+        "example": "TikTok"
+      }
+    }
+  },
+  "loginTitle": "{nameOfTheApp} 계정에 로그인 하세요",
+  "@loginTitle": {
+    "placeholders": {
+      "nameOfTheApp": {
+        "type": "String",
+        "example": "TikTok"
+      }
+    }
+  },
+  "signUpSubtitle": "Create a profile, follow other accounts, make your own videos, and more.",
+  "emailPasswordButton": "Use email & password",
+  "appleButton": "Continue with Apple",
+  "alreadyHaveAnAccount": "Already have an account?",
+  "logIn": "Log In",
+  "likeCount": "{potato}",
+  "commentCount": "{potato}",
+  "commentTitle": "{value} {value2, plural ,=1{코멘트} other{코멘트}}"
+
+}

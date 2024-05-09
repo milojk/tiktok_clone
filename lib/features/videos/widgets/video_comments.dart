@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/generated/l10n.dart';
 import 'package:tiktok_clone/utils.dart';
 
 class VideoComments extends StatefulWidget {
@@ -38,6 +38,7 @@ class _VideoCommentsState extends State<VideoComments> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final isDark = isDarkMode(context);
+
     return Container(
       height: size.height * 0.75,
       clipBehavior: Clip.hardEdge,
@@ -59,7 +60,7 @@ class _VideoCommentsState extends State<VideoComments> {
                   ),
                 ),
               ],
-              title: const Text('24234 comments'),
+              title: Text(S.of(context).commentTitle(498203948, 300)),
             ),
             body: GestureDetector(
               onTap: _stopWriting,

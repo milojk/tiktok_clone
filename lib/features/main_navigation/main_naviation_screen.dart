@@ -18,7 +18,7 @@ class MainNaviationScreen extends StatefulWidget {
 }
 
 class _MainNaviationScreenState extends State<MainNaviationScreen> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   bool _isPostVideoSelected = false;
 
   void _onTap(int index) {
